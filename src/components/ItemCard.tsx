@@ -10,6 +10,7 @@ export function ItemCard({
   name,
   weaponName,
   canDelete,
+  onDelete,
 }: ItemCardType) {
   return (
     <Card onClick={onClick}>
@@ -27,7 +28,10 @@ export function ItemCard({
         <h2 className="text-xs">{weaponName}</h2>
         {canDelete && (
           <div className="p-3">
-            <button className="btn btn-circle btn-sm btn-outline hover:bg-error hover:border-error">
+            <button
+              onClick={onDelete}
+              className="btn btn-circle btn-sm btn-outline hover:bg-error hover:border-error"
+            >
               <FaRegTrashAlt size={12} />
             </button>
           </div>

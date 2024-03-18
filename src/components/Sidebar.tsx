@@ -4,7 +4,7 @@ import { useSteam } from "@/hooks/useSteam";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
-import { FaSteam } from "react-icons/fa6";
+import { FaDoorOpen, FaSteam } from "react-icons/fa6";
 
 export function Sidebar() {
   const { steam } = useSteam();
@@ -27,13 +27,13 @@ export function Sidebar() {
           onClick={() => signOut()}
           className="btn btn-secondary flex items-center justify-center gap-1"
         >
-          Sign out
+          <FaDoorOpen className="w-4 h-4" /> Sign out
         </button>
       )}
       <div className="flex flex-col gap-2">
         <Link className="btn btn-sm btn-ghost" href="steam://connect/sivert.io">
           <p>
-            Connect to <span className="text-secondary">PUG</span>
+            Connect to <span className="text-secondary">PUG</span> server
           </p>
         </Link>
         <Link
@@ -41,7 +41,7 @@ export function Sidebar() {
           href="steam://connect/sivert.io:27017"
         >
           <p>
-            Connect to <span className="text-secondary">Retake</span>
+            Connect to <span className="text-secondary">Retake</span> server
           </p>
         </Link>
       </div>
