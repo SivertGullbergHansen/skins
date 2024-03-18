@@ -1,10 +1,13 @@
 "use client";
 
 import { useSteam } from "@/hooks/useSteam";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ItemCard } from "./ItemCard";
 import { AddCard } from "./AddCard";
 import { ItemCardType } from "@/types/ItemCard";
+import { AllWeapons } from "./AllWeapons";
+import { FaArrowLeft } from "react-icons/fa6";
+import { WeaponGrid } from "./WeaponGrid";
 
 const dummyData: ItemCardType[] = [
   {
@@ -18,21 +21,50 @@ const dummyData: ItemCardType[] = [
 
 export function SkinEditor() {
   const [isAddingNewWeapon, setIsAddingNewWeapon] = useState(false);
+  const [excludedWeapons, setExcludedWeapons] = useState<string[]>([]);
+  const [editingSkin, setEditingSkin] = useState<undefined | string>(undefined);
+
+  useEffect(() => {
+    setExcludedWeapons(dummyData.map((skin) => skin.weaponName));
+  }, []);
 
   const { steam } = useSteam();
 
   function editSkin() {}
 
   return (
-    <div className=" w-full grid grid-cols-4">
+    <>
       {!isAddingNewWeapon && (
-        <>
-          {dummyData.map((card, index) => (
-            <ItemCard key={index} {...card} onClick={() => {}} />
-          ))}
-          <AddCard onClick={() => {}} />
-        </>
+        <div>
+          <h1 className="font-bold text-xl">Your skins</h1>
+          <WeaponGrid>
+            {dummyData.map((card, index) => (
+              <ItemCard key={index} {...card} canDelete onClick={() => {}} />
+            ))}
+            <AddCard
+              onClick={() => {
+                setIsAddingNewWeapon(true);
+              }}
+            />
+          </WeaponGrid>
+        </div>
       )}
-    </div>
+
+      {isAddingNewWeapon && (
+        <div className="w-full h-full flex flex-col">
+          <div className="flex items-center justify-start p-4 gap-4">
+            <button
+              onClick={() => setIsAddingNewWeapon(false)}
+              className="btn btn-primary flex items-center justify-center gap-2"
+            >
+              <FaArrowLeft size={16} />
+              Back
+            </button>
+            <h1 className="font-bold text-xl">Add weapon</h1>
+          </div>
+          <AllWeapons excluded={excludedWeapons} />
+        </div>
+      )}
+    </>
   );
 }

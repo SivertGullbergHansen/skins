@@ -4,4 +4,5 @@ export interface ItemCardType {
   onClick?: () => any;
   name: string;
   weaponName: string;
+  canDelete?: boolean;
 }
