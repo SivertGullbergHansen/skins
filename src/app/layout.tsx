@@ -26,7 +26,7 @@ export default async function RootLayout({
       >
         <div className="w-full h-full flex rounded-2xl overflow-hidden">
           <Sidebar />
-          <main className="w-full max-w-[1200px] h-full bg-base-100 p-8">
+          <main className="w-full h-full bg-base-100 p-8">
             <SessionProvider>{children}</SessionProvider>
           </main>
         </div>

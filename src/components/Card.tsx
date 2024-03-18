@@ -10,7 +10,7 @@ export function Card({
   return (
     <button
       onClick={onClick}
-      className="bg-primary/10 relative border-2 border-primary/25 rounded-lg p-2 hover:border-primary scale-[99%] hover:scale-100 transition"
+      className="bg-secondary/10 relative border-2 min-w-[273px] border-secondary/25 rounded-lg p-2 hover:border-secondary scale-[99%] hover:scale-100 transition"
     >
       {children}
     </button>

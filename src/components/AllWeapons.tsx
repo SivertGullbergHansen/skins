@@ -9,17 +9,27 @@ baseWeapons.forEach((weapon) => {
   mappedWeapons[weapon.type].push(weapon);
 });
 
-export function AllWeapons({ excluded }: { excluded: string[] }) {
+export function AllWeapons({
+  excluded,
+  editWeapon,
+}: {
+  excluded: string[];
+  editWeapon: (name: string) => any;
+}) {
   return (
     <div className="w-full flex flex-col gap-12 h-full overflow-auto">
       {Object.keys(mappedWeapons).map((type) => (
-        <div key={type} className="flex flex-col items-start justify-center">
+        <div
+          key={type}
+          className="flex flex-col gap-2 items-start justify-center"
+        >
           <h1 className="font-bold text-lg">{type}</h1>
           <WeaponGrid>
             {mappedWeapons[type].map(
               (weapon) =>
                 !excluded.includes(weapon.name) && (
                   <ItemCard
+                    onClick={() => editWeapon(weapon.name)}
                     image={weapon.url}
                     name={weapon.name}
                     weaponName=""

@@ -30,7 +30,9 @@ export function SkinEditor() {
 
   const { steam } = useSteam();
 
-  function editSkin() {}
+  function editSkin(weaponType: string) {
+    setEditingSkin(weaponType);
+  }
 
   return (
     <>
@@ -55,14 +57,14 @@ export function SkinEditor() {
           <div className="flex items-center justify-start p-4 gap-4">
             <button
               onClick={() => setIsAddingNewWeapon(false)}
-              className="btn btn-primary flex items-center justify-center gap-2"
+              className="btn btn-secondary flex items-center justify-center gap-2"
             >
               <FaArrowLeft size={16} />
               Back
             </button>
             <h1 className="font-bold text-xl">Add weapon</h1>
           </div>
-          <AllWeapons excluded={excludedWeapons} />
+          <AllWeapons editWeapon={editSkin} excluded={excludedWeapons} />
         </div>
       )}
     </>
