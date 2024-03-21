@@ -17,19 +17,18 @@ export function Sidebar() {
           onClick={() => signIn("steam")}
           className="btn btn-secondary flex items-center justify-center gap-1"
         >
-          <FaSteam className="w-5 h-5" /> Sign in with{" "}
-          <span className="font-bold">steam</span>
+          <FaSteam className="w-5 h-5" /> Sign in
         </button>
       )}
       {steam && (
         <div className="flex flex-col gap-2">
+          <p className="text-center truncate">{steam.personaname}</p>
           <button
             onClick={() => signOut()}
             className="btn btn-secondary flex items-center justify-center gap-1"
           >
             <FaDoorOpen className="w-4 h-4" /> Sign out
           </button>
-          <p className="text-center truncate">{steam.personaname}</p>
         </div>
       )}
       <div className="flex flex-col gap-2">
