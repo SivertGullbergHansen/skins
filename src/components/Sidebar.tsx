@@ -9,7 +9,7 @@ export function Sidebar() {
   const steam = useSteam();
 
   return (
-    <div className="h-full w-[450px] bg-base-200 p-8 flex flex-col items-center justify-center gap-6">
+    <div className="h-full min-w-[300px] bg-base-200 p-8 flex flex-col items-center justify-center gap-6">
       <h1 className="text-3xl font-bold">Sivert.io</h1>
       {steam === undefined && <button className="btn loading"></button>}
       {steam === null && (
@@ -29,7 +29,7 @@ export function Sidebar() {
           >
             <FaDoorOpen className="w-4 h-4" /> Sign out
           </button>
-          <p className="text-center">{steam.personaname}</p>
+          <p className="text-center truncate">{steam.personaname}</p>
         </div>
       )}
       <div className="flex flex-col gap-2">

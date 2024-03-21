@@ -2,7 +2,7 @@ export interface ItemCardType extends SkinType {
   onClick?: () => any;
   onDelete?: () => any;
   onEdit?: () => any;
-  canDelete?: boolean;
+  canModify?: boolean;
   isActive?: boolean;
 }
 

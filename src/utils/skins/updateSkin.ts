@@ -2,7 +2,7 @@ import { decode } from "next-auth/jwt";
 import { models } from "../db";
 import { SteamProfile } from "next-auth-steam";
 
-export async function postData(request: Request) {
+export async function updateData(request: Request) {
   const { searchParams } = new URL(request.url);
   const token = searchParams.get("token");
   const type: "skin" | "gloves" | "knife" | "agent" | null = searchParams.get(

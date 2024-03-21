@@ -10,21 +10,21 @@ import { Legend } from "./Legend";
 
 export function SkinEditor() {
   const [isAddingNewWeapon, setIsAddingNewWeapon] = useState(false);
-  const [editingSkin, setEditingSkin] = useState<undefined | string>(undefined);
+  const [editingSkin, setEditingSkin] = useState<undefined | number>(undefined);
   const [equippedSkins, setEquippedSkins] = useState<number[]>([]);
   const [skins, setSkins] = useState<SkinType[]>([
     {
       id: 0,
       image:
         "https://raw.githubusercontent.com/ByMykel/CSGO-API/1675e7262bd51fdba1d74664fd4b4fc06a50bb12/public/images/econ/default_generated/weapon_awp_cu_medusa_awp_light.png",
-      name: "Medusa",
+      name: "Blood In The Water",
       type: "Rifle",
       weaponName: "AWP",
     },
   ]);
 
-  function editSkin(weaponType: string) {
-    setEditingSkin(weaponType);
+  function editSkin(id: number) {
+    setEditingSkin(id);
   }
 
   function deleteSkin(skin: SkinType) {
@@ -34,7 +34,7 @@ export function SkinEditor() {
   return (
     <>
       {!isAddingNewWeapon && (
-        <div className="relative">
+        <div className="relative w-full">
           <Legend />
           <h1 className="font-bold text-xl">Your skins</h1>
           <WeaponGrid>
@@ -43,7 +43,7 @@ export function SkinEditor() {
                 key={index}
                 {...skinData}
                 isActive={equippedSkins.includes(skinData.id)}
-                canDelete
+                canModify
                 onDelete={() => deleteSkin(skinData)}
                 onClick={() => {
                   const exists = equippedSkins.findIndex(
@@ -80,7 +80,10 @@ export function SkinEditor() {
             </button>
             <h1 className="font-bold text-xl">Add weapon</h1>
           </div>
-          <AllWeapons editWeapon={editSkin} />
+          <AllWeapons
+            setSkins={setSkins}
+            goBack={() => setIsAddingNewWeapon(false)}
+          />
         </div>
       )}
     </>

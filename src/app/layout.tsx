@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { Sidebar } from "@/components/Sidebar";
 import { SessionProvider } from "@/components/SessionProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
 
@@ -24,6 +25,16 @@ export default async function RootLayout({
         <SessionProvider>
           <div className="w-full h-full flex rounded-2xl overflow-hidden">
             <Sidebar />
+            <Toaster
+              position="top-left"
+              containerStyle={{
+                top: 64,
+                left: 64,
+                bottom: 64,
+                width: 300 - 64,
+                overflow: "hidden",
+              }}
+            />
             <main className="w-full h-full bg-base-100 p-8">{children}</main>
           </div>
         </SessionProvider>
