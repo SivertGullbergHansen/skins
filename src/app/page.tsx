@@ -3,7 +3,7 @@
 import { SkinEditor } from "@/components/SkinEditor";
 import { useSteam } from "../hooks/useSteam";
 export default function Home() {
-  const { steam } = useSteam();
+  const steam = useSteam();
 
   return (
     <main className="flex flex-col items-center justify-center h-full w-full">

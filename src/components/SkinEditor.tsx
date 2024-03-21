@@ -1,47 +1,63 @@
 "use client";
-
-import { useSteam } from "@/hooks/useSteam";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ItemCard } from "./ItemCard";
 import { AddCard } from "./AddCard";
-import { ItemCardType } from "@/types/ItemCard";
+import { SkinType } from "@/types/ItemCardType";
 import { AllWeapons } from "./AllWeapons";
 import { FaArrowLeft } from "react-icons/fa6";
 import { WeaponGrid } from "./WeaponGrid";
-
-const dummyData: ItemCardType[] = [
-  {
-    image:
-      "https://raw.githubusercontent.com/ByMykel/CSGO-API/1675e7262bd51fdba1d74664fd4b4fc06a50bb12/public/images/econ/default_generated/weapon_awp_cu_medusa_awp_light.png",
-    name: "Medusa",
-    weaponName: "AWP",
-    weaponType: 1,
-  },
-];
+import { Legend } from "./Legend";
 
 export function SkinEditor() {
   const [isAddingNewWeapon, setIsAddingNewWeapon] = useState(false);
-  const [excludedWeapons, setExcludedWeapons] = useState<string[]>([]);
   const [editingSkin, setEditingSkin] = useState<undefined | string>(undefined);
-
-  useEffect(() => {
-    setExcludedWeapons(dummyData.map((skin) => skin.weaponName));
-  }, []);
-
-  const { steam } = useSteam();
+  const [equippedSkins, setEquippedSkins] = useState<number[]>([]);
+  const [skins, setSkins] = useState<SkinType[]>([
+    {
+      id: 0,
+      image:
+        "https://raw.githubusercontent.com/ByMykel/CSGO-API/1675e7262bd51fdba1d74664fd4b4fc06a50bb12/public/images/econ/default_generated/weapon_awp_cu_medusa_awp_light.png",
+      name: "Medusa",
+      type: "Rifle",
+      weaponName: "AWP",
+    },
+  ]);
 
   function editSkin(weaponType: string) {
     setEditingSkin(weaponType);
   }
 
+  function deleteSkin(skin: SkinType) {
+    setSkins((old) => old.filter((skin) => skin.id !== skin.id));
+  }
+
   return (
     <>
       {!isAddingNewWeapon && (
-        <div>
+        <div className="relative">
+          <Legend />
           <h1 className="font-bold text-xl">Your skins</h1>
           <WeaponGrid>
-            {dummyData.map((card, index) => (
-              <ItemCard key={index} {...card} canDelete onClick={() => {}} />
+            {skins.map((skinData, index) => (
+              <ItemCard
+                key={index}
+                {...skinData}
+                isActive={equippedSkins.includes(skinData.id)}
+                canDelete
+                onDelete={() => deleteSkin(skinData)}
+                onClick={() => {
+                  const exists = equippedSkins.findIndex(
+                    (value) => value === skinData.id
+                  );
+                  if (exists > -1) {
+                    setEquippedSkins(
+                      equippedSkins.filter((skinId) => skinId !== skinData.id)
+                    );
+                  } else {
+                    setEquippedSkins((old) => [...old, skinData.id]);
+                  }
+                }}
+              />
             ))}
             <AddCard
               onClick={() => {
@@ -64,7 +80,7 @@ export function SkinEditor() {
             </button>
             <h1 className="font-bold text-xl">Add weapon</h1>
           </div>
-          <AllWeapons editWeapon={editSkin} excluded={excludedWeapons} />
+          <AllWeapons editWeapon={editSkin} />
         </div>
       )}
     </>

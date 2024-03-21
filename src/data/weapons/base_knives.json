@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Bayonet",
+        "type": "Knife",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_bayonet_png.png"
+    },
+    {
+        "name": "M9 Bayonet",
+        "type": "Knife",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_knife_m9_bayonet_png.png"
+    },
+    {
+        "name": "Karambit",
+        "type": "Knife",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_knife_karambit_png.png"
+    },
+    {
+        "name": "Tactical Knife",
+        "type": "Knife",
+        "url": "https://raw.githubusercontent.com/bymykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_knife_tactical_png.png"
+    },
+    {
+        "name": "Twinblade Knife",
+        "type": "Knife",
+        "url": "https://raw.githubusercontent.com/bymykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_knife_twinblade_png.png"
+    },
+    {
+        "name": "Ursus Knife",
+        "type": "Knife",
+        "url": "https://raw.githubusercontent.com/bymykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_knife_ursus_png.png"
+    },
+    {
+        "name": "Widowmaker Knife",
+        "type": "Knife",
+        "url": "https://raw.githubusercontent.com/bymykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_knife_widowmaker_png.png"
+    }
+]

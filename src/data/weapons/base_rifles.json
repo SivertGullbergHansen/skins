@@ -1,0 +1,22 @@
+[
+    {
+        "name": "AWP",
+        "type": "Rifle",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_awp_png.png"
+    },
+    {
+        "name": "AK-47",
+        "type": "Rifle",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_ak47_png.png"
+    },
+    {
+        "name": "M4A1",
+        "type": "Rifle",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_m4a1_png.png"
+    },
+    {
+        "name": "M4A1-S",
+        "type": "Rifle",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_m4a1_silencer_png.png"
+    }
+]

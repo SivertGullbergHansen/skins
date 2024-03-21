@@ -1,19 +1,25 @@
 "use client";
 
 import { SteamProfile } from "next-auth-steam";
-import { getSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
-export function useSteam() {
-  const [steam, setSteam] = useState<undefined | null | SteamProfile>(
+function useSteam() {
+  const session = useSession();
+  const [steam, setSteam] = useState<SteamProfile | undefined | null>(
     undefined
   );
 
   useEffect(() => {
-    getSession().then((res) => {
-      setSteam(res ? (res.user as SteamProfile) : null);
-    });
-  }, []);
+    if (session.status === "loading") return;
+    if (session.data) {
+      const data: SteamProfile = (session.data.user as any).steam;
 
-  return { steam };
+      setSteam(data);
+    } else setSteam(null);
+  }, [session.data, session.status, steam]);
+
+  return steam;
 }
+
+export { useSteam };

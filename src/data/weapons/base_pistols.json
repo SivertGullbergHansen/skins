@@ -1,0 +1,27 @@
+[
+    {
+        "name": "USP-S",
+        "type": "Pistol",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_usp_silencer_png.png"
+    },
+    {
+        "name": "Glock-19",
+        "type": "Pistol",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_glock_png.png"
+    },
+    {
+        "name": "P2000",
+        "type": "Pistol",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_hkp2000_png.png"
+    },
+    {
+        "name": "Desert Eagle",
+        "type": "Pistol",
+        "url": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_deagle_png.png"
+    },
+    {
+        "name": "P250",
+        "type": "Pistol",
+        "url": "https://raw.githubusercontent.com/bymykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_p250_png.png"
+    }
+]
